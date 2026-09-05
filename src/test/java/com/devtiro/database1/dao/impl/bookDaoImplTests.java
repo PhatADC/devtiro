@@ -29,23 +29,32 @@ public class bookDaoImplTests {
 
     @Test
     public void testSql(){
-        book Book = TestDataUtil.createTestBook();
+        book Book = TestDataUtil.createTestBookA();
 
         unitTest.create(Book);
 
         verify(jdbcTemplate).update(
-                eq("INSERT INTO (isbn, title, author_id) VALUES (?, ?, ?)"),
+                eq("INSERT INTO books (isbn, title, author_id) VALUES (?, ?, ?)"),
                 eq("0868791665"), eq("Phat"), eq(1L)
         );
     }
 
     @Test
     public void testThatGenerateCorrectSql(){
-        unitTest.find("0868791665");
+        unitTest.findOne("0868791665");
         verify(jdbcTemplate).query(
-                eq("SELECT isbn, title, author_id from book WHERE author_id = ? LIMIT 1"),
+                eq("SELECT isbn, title, author_id FROM books WHERE isbn = ? LIMIT 1"),
                 ArgumentMatchers.<bookdaoImpl.BookRowMapper>any(),
                 eq("0868791665")
+        );
+    }
+
+    @Test
+    public void testThatFindGenerateCorrectSql(){
+        unitTest.find();
+        verify(jdbcTemplate).query(
+                eq("SELECT isbn, title, author_id FROM books"),
+                ArgumentMatchers.<bookdaoImpl.BookRowMapper>any()
         );
     }
 }

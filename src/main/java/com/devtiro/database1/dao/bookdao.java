@@ -3,6 +3,7 @@ package com.devtiro.database1.dao;
 import com.devtiro.database1.domain.author;
 import com.devtiro.database1.domain.book;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -13,5 +14,7 @@ import java.util.Optional;
 public interface bookdao {
     public void create(book Book);
 
-    Optional<book> find(String isbn);
+    Optional<book> findOne(String isbn);
+
+    List<book> find();
 }

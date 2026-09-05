@@ -30,7 +30,7 @@ public class authorDaoImplTests {
 
     @Test
     public void testThatCreateAuthorGeneratesCorrectSql(){
-        author Author = TestDataUtil.createTestAuthor();
+        author Author = TestDataUtil.createTestAuthorA();
         undertest.create(Author);
 
         verify(jdbcTemplate).update(
