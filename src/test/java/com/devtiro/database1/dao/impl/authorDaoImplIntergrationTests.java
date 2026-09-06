@@ -56,4 +56,11 @@ public class authorDaoImplIntergrationTests {
                 .containsExactly(AuthorA, AuthorB, AuthorC);
 
     }
+
+    @Test
+    public void testThatAuthorCanBeUpdate(){
+        author AuthorA = TestDataUtil.createTestAuthorA();
+        undertest.create(AuthorA);
+
+    }
 }
