@@ -66,6 +66,14 @@ public class bookDaoImplTests {
                 "UPDATE books SET isbn = ?, title = ?, author_id = ? WHERE isbn = ?",
                 Book.getIsbn(), Book.getTitle(), Book.getAuthor_id(), Book.getIsbn()
         );
+    }
 
+    @Test
+    public void testThatDeleteGenerateTheCorrectSql(){
+        unitTest.delete("0868791665");
+        verify(jdbcTemplate).update(
+                "DELETE FROM books WHERE isbn = ?",
+                "0868791665"
+        );
     }
 }
