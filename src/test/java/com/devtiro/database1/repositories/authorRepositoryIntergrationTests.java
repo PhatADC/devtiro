@@ -41,40 +41,40 @@ public class authorRepositoryIntergrationTests {
         assertThat(result.get()).isEqualTo(Author);
     }
 
-//    @Test
-//    public void testThatMultipleAuthorCanBeCreateAndRecalled(){
-//        author AuthorA = TestDataUtil.createTestAuthorA();
-//        undertest.create(AuthorA);
-//        author AuthorB = TestDataUtil.createTestAuthorB();
-//        undertest.create(AuthorB);
-//        author AuthorC = TestDataUtil.createTestAuthorC();
-//        undertest.create(AuthorC);
-//
-//        List<author> results = undertest.find();
-//        assertThat(results)
-//                .hasSize(3)
-//                .containsExactly(AuthorA, AuthorB, AuthorC);
-//
-//    }
-//
-//    @Test
-//    public void testThatAuthorCanBeUpdate(){
-//        author AuthorA = TestDataUtil.createTestAuthorA();
-//        undertest.create(AuthorA);
-//        AuthorA.setName("Manh");
-//        undertest.update(AuthorA.getId(), AuthorA);
-//        Optional<author> results = undertest.findOne(AuthorA.getId());
-//        assertThat(results).isPresent();
-//        assertThat(results.get()).isEqualTo(AuthorA);
-//    }
-//
-//    @Test
-//    public void testThatAuthorCanBeDeleted(){
-//        author AuthorA = TestDataUtil.createTestAuthorA();
-//        undertest.create(AuthorA);
-//        undertest.delete(AuthorA.getId());
-//        Optional<author> results = undertest.findOne(AuthorA.getId());
-//        assertThat(results).isEmpty();
-//
-//    }
+    @Test
+    public void testThatMultipleAuthorCanBeCreateAndRecalled(){
+        author AuthorA = TestDataUtil.createTestAuthorA();
+        undertest.save(AuthorA);
+        author AuthorB = TestDataUtil.createTestAuthorB();
+        undertest.save(AuthorB);
+        author AuthorC = TestDataUtil.createTestAuthorC();
+        undertest.save(AuthorC);
+
+        Iterable<author> results = undertest.findAll();
+        assertThat(results)
+                .hasSize(3)
+                .containsExactly(AuthorA, AuthorB, AuthorC);
+
+    }
+
+    @Test
+    public void testThatAuthorCanBeUpdate(){
+        author AuthorA = TestDataUtil.createTestAuthorA();
+        undertest.save(AuthorA);
+        AuthorA.setName("Manh");
+        undertest.save(AuthorA);
+        Optional<author> results = undertest.findById(AuthorA.getId());
+        assertThat(results).isPresent();
+        assertThat(results.get()).isEqualTo(AuthorA);
+    }
+
+    @Test
+    public void testThatAuthorCanBeDeleted(){
+        author AuthorA = TestDataUtil.createTestAuthorA();
+        undertest.save(AuthorA);
+        undertest.deleteById(AuthorA.getId());
+        Optional<author> results = undertest.findById(AuthorA.getId());
+        assertThat(results).isEmpty();
+
+    }
 }

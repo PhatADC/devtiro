@@ -17,7 +17,7 @@ public class TestDataUtil {
 
     public static author createTestAuthorA() {
         return author.builder()
-                .id(1L)
+                .id(null)
                 .name("Phat")
                 .age(80)
                 .build();
@@ -25,7 +25,7 @@ public class TestDataUtil {
 
     public static author createTestAuthorB() {
         return author.builder()
-                .id(2L)
+                .id(null)
                 .name("Phat1")
                 .age(90)
                 .build();
@@ -33,7 +33,7 @@ public class TestDataUtil {
 
     public static author createTestAuthorC() {
         return author.builder()
-                .id(3L)
+                .id(null)
                 .name("Phat2")
                 .age(1000)
                 .build();
