@@ -1,5 +1,8 @@
 package com.devtiro.database1.controllers;
 
+import com.devtiro.database1.domain.dto.AuthorDto;
+import com.devtiro.database1.domain.entities.AuthorEntity;
+import com.devtiro.database1.mappers.Mapper;
 import com.devtiro.database1.services.AuthorService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,12 +18,17 @@ public class AuthorController {
 
     private AuthorService authorService;
 
-    public AuthorController(AuthorService authorService){
+    private Mapper<AuthorEntity, AuthorDto> authorMapper;
+
+    public AuthorController(AuthorService authorService, Mapper<AuthorEntity, AuthorDto> authorMapper){
         this.authorService = authorService;
+        this.authorMapper = authorMapper;
     }
 
     @PostMapping(path = "/authors")
     public AuthorDto createAuthor(@RequestBody AuthorDto Author){
-        return authorService.createAuthor(Author);
+        AuthorEntity authorEntity = authorMapper.mapFrom(Author);
+        AuthorEntity savedAuthorEntity = authorService.createAuthor(authorEntity);
+        return authorMapper.mapTo(savedAuthorEntity);
     }
 }
