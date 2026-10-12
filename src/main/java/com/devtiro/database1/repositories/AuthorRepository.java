@@ -1,6 +1,7 @@
 package com.devtiro.database1.repositories;
 
-import com.devtiro.database1.domain.author;
+import com.devtiro.database1.domain.entities.AuthorEntity;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +12,10 @@ import org.springframework.stereotype.Repository;
  **/
 
 @Repository
-public interface AuthorRepository extends CrudRepository<author, Long> {
+public interface AuthorRepository extends CrudRepository<AuthorEntity, Long> {
 
+    Iterable<AuthorEntity> ageLessThan(int age);
+
+    @Query("SELECT a FROM author a WHERE a.age > ?1")
+    Iterable<AuthorEntity> findAuthorsWithAgeGreaterThan(int age);
 }

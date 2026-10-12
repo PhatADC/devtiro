@@ -1,4 +1,4 @@
-package com.devtiro.database1.domain;
+package com.devtiro.database1.domain.entities;
 
 /**
  * @author : User
@@ -11,21 +11,18 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "books")
-public class book {
+@Table(name = "authors")
+public class AuthorEntity {
     @Id
-    private String isbn;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "author_id_seq")
+    private Long id;
 
-    private String title;
+    private String name;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "author_id")
-    private author Author;
-
+    private Integer age;
 }
