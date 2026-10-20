@@ -43,6 +43,7 @@ public class AuthorControllerIntegrationTests {
         AuthorEntity testAuthorA = TestDataUtil.createTestAuthorA();
         testAuthorA.setId(null);
         String authorJson = objectMapper.writeValueAsString(testAuthorA);
+
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/authors")
                         .contentType(MediaType.APPLICATION_JSON)

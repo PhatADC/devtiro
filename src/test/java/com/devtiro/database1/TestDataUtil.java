@@ -1,5 +1,7 @@
 package com.devtiro.database1;
 
+import com.devtiro.database1.domain.dto.AuthorDto;
+import com.devtiro.database1.domain.dto.BookDto;
 import com.devtiro.database1.domain.entities.AuthorEntity;
 import com.devtiro.database1.domain.entities.BookEntity;
 
@@ -39,11 +41,19 @@ public class TestDataUtil {
                 .build();
     }
 
-    public static BookEntity createTestBookA(final AuthorEntity AuthorEntity) {
+    public static BookEntity createTestBookEntityA(final AuthorEntity AuthorEntity) {
         return BookEntity.builder()
                 .isbn("0868791665")
                 .title("Phat")
                 .AuthorEntity(AuthorEntity)
+                .build();
+    }
+
+    public static BookDto createTestBookDtoA(final AuthorDto authorDto) {
+        return BookDto.builder()
+                .isbn("0868791665")
+                .title("Phat")
+                .AuthorEntity(authorDto)
                 .build();
     }
 
