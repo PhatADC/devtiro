@@ -2,6 +2,8 @@ package com.devtiro.database1.services;
 
 import com.devtiro.database1.domain.entities.AuthorEntity;
 
+import java.util.List;
+
 /**
  * @author : User
  * @mailto : dothanhphat2005@gmail.com
@@ -9,4 +11,6 @@ import com.devtiro.database1.domain.entities.AuthorEntity;
  **/
 public interface AuthorService {
     AuthorEntity createAuthor(AuthorEntity AuthorEntity);
+
+    List<AuthorEntity> findAll();
 }
