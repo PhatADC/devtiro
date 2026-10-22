@@ -3,6 +3,7 @@ package com.devtiro.database1.services;
 import com.devtiro.database1.domain.entities.AuthorEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author : User
@@ -13,4 +14,6 @@ public interface AuthorService {
     AuthorEntity createAuthor(AuthorEntity AuthorEntity);
 
     List<AuthorEntity> findAll();
+
+    Optional<AuthorEntity> findOne(Long id);
 }

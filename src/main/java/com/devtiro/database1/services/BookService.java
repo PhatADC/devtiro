@@ -2,6 +2,8 @@ package com.devtiro.database1.services;
 
 import com.devtiro.database1.domain.entities.BookEntity;
 
+import java.util.List;
+
 /**
  * @author : User
  * @mailto : dothanhphat2005@gmail.com
@@ -11,4 +13,5 @@ public interface BookService {
 
     BookEntity createBook(String isbn, BookEntity book);
 
+    List<BookEntity> findAll();
 }
