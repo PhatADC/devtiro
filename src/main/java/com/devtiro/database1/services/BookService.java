@@ -3,6 +3,7 @@ package com.devtiro.database1.services;
 import com.devtiro.database1.domain.entities.BookEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author : User
@@ -14,4 +15,6 @@ public interface BookService {
     BookEntity createBook(String isbn, BookEntity book);
 
     List<BookEntity> findAll();
+
+    Optional<BookEntity> findOne(String isbn);
 }
