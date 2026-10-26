@@ -11,9 +11,11 @@ import java.util.Optional;
  * @created : 10/12/2026, Monday
  **/
 public interface AuthorService {
-    AuthorEntity createAuthor(AuthorEntity AuthorEntity);
+    AuthorEntity save(AuthorEntity AuthorEntity);
 
     List<AuthorEntity> findAll();
 
     Optional<AuthorEntity> findOne(Long id);
+
+    boolean isExist(Long id);
 }
