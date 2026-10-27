@@ -53,7 +53,7 @@ public class TestDataUtil {
         return BookEntity.builder()
                 .isbn("0868791665")
                 .title("Phat")
-                .AuthorEntity(AuthorEntity)
+                .author(AuthorEntity)
                 .build();
     }
 
@@ -61,7 +61,7 @@ public class TestDataUtil {
         return BookDto.builder()
                 .isbn("0868791665")
                 .title("Phat")
-                .AuthorEntity(authorDto)
+                .author(authorDto)
                 .build();
     }
 
@@ -69,7 +69,7 @@ public class TestDataUtil {
         return BookEntity.builder()
                 .isbn("0868791666")
                 .title("Phat2")
-                .AuthorEntity(AuthorEntity)
+                .author(AuthorEntity)
                 .build();
     }
 
@@ -77,7 +77,7 @@ public class TestDataUtil {
         return BookEntity.builder()
                 .isbn("0868791667")
                 .title("Phat3")
-                .AuthorEntity(AuthorEntity)
+                .author(AuthorEntity)
                 .build();
     }
 }
