@@ -2,6 +2,7 @@ package com.devtiro.database1.repositories;
 
 import com.devtiro.database1.domain.entities.BookEntity;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Repository;
  **/
 
 @Repository
-public interface BookRepository extends CrudRepository<BookEntity, String> {
+public interface BookRepository extends CrudRepository<BookEntity, String>,
+        PagingAndSortingRepository<BookEntity, String> {
 
 }
